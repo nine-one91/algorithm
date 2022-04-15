@@ -1,0 +1,32 @@
+def solution(new_id):
+    s_character = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "=", "+", "[", "{", "]", "}", ":", "?", ",", "<", ">", "/"]
+    # 1
+    new_id = new_id.lower()
+    # 2
+    for s_c in s_character:
+        if s_c in new_id:
+            new_id = new_id.replace(s_c, "")
+    # 3
+    while(True):
+        if(".." not in new_id):
+            break
+        new_id = new_id.replace("..", ".")
+    # 4
+    if new_id[0] == ".": 
+        new_id = new_id[1:]
+    if len(new_id) > 1 and new_id[-1] == ".":
+        new_id = new_id[:-1]
+    # 5
+    if new_id == "":
+        new_id = "a"
+    # 6
+    if len(new_id) >= 16:
+        new_id = new_id[0:15]
+        if new_id.rfind(".") == (len(new_id)-1):
+            new_id = new_id[:-1]
+    # 7
+    while(len(new_id) < 3):
+        new_id += new_id[-1]
+        
+        
+    return new_id
