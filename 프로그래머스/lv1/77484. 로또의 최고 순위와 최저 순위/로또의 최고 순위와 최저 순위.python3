@@ -1,0 +1,11 @@
+def solution(lottos, win_nums):
+    rank=7
+    for lotto in lottos:
+        if(lotto in win_nums):
+            rank -= 1
+            
+    zero_count = lottos.count(0)
+    
+    max_rank = rank-zero_count if rank-zero_count < 7 else 6
+    min_rank = rank if rank < 7 else 6
+    return [max_rank, min_rank ]
