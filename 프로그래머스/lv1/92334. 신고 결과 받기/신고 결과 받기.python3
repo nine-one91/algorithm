@@ -1,0 +1,26 @@
+def solution(id_list, reports, k):
+    tmp_list = [0]*len(id_list)
+    answers = [0]*len(id_list)
+    for r in set(reports):
+        user = r.split()[0]
+        report = r.split()[-1]
+        
+        report_idx = id_list.index(report)
+        tmp_list[report_idx] = tmp_list[report_idx] + 1
+        
+    report_user_list = []
+    print(tmp_list)
+    for idx, re in enumerate(tmp_list):
+        if re >= k:
+            user = id_list[idx]
+            report_user_list.append(user)
+            
+    print(report_user_list)
+    for report in set(reports):
+        re_sp = report.split()
+        tmp = re_sp[-1] in report_user_list
+        if tmp:
+            idx = id_list.index(re_sp[0])
+            answers[idx] = answers[idx] + 1
+    #print(answers)
+    return answers
