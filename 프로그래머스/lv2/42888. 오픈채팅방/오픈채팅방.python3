@@ -1,0 +1,23 @@
+id_to_name = {}
+
+def makeMsg(isEnter, uid):
+    return f"{id_to_name[uid]}님이 {'들어왔습니다' if isEnter else '나갔습니다'}."
+
+def solution(record):
+    answer = []
+    tmp = []
+
+    for row in record:
+        r = row.split()
+        if r[0] != "Change":
+            tmp.append(f"{r[0]} {r[1]}")
+            
+        if r[0] != "Leave":
+            id_to_name[r[1]] = r[2]
+        
+    for t in tmp:
+        tt = t.split()
+        
+        answer.append(makeMsg(tt[0] == "Enter", tt[1]))
+        
+    return answer
