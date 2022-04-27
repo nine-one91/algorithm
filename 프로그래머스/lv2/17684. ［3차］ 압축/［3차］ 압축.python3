@@ -1,0 +1,23 @@
+###
+# 문자 : 아스키 : 사전
+# A : 65 : 1
+###
+def solution(msg):
+    answer = []
+    # 추가 사전
+    dic = {chr(i + 64): i for i in range(1, 27)}
+    lastNum = 27
+    
+    while msg:        
+        j = 1
+        for i in range(1, len(msg)+1):
+            j = i
+            if not msg[: i] in dic:
+                dic[msg[: i]] = lastNum
+                lastNum += 1
+                j = i-1
+                break
+        answer.append(dic[msg[:j]])
+        msg = msg[j:]
+        
+    return answer
