@@ -1,0 +1,4 @@
+def solution(phone_number):
+    secureNum = len(phone_number[:-4]) * '*'
+    return f"{secureNum}{phone_number[-4:]}"
+    
