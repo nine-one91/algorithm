@@ -1,0 +1,7 @@
+def solution(nums):
+    answer = 0
+    maxCount = int(len(nums) / 2)
+    set_num = set(nums)
+    setCount = len(set_num)
+    
+    return maxCount if maxCount <= setCount else setCount
