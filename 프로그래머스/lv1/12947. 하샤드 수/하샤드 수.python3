@@ -1,0 +1,13 @@
+def solution(x):
+    temp = x
+    sumValue = 0
+    while temp > 0:
+        sumValue += int(temp % 10)
+        temp //= 10
+    
+    return x % sumValue == 0
+    
+    
+def solution1(x):
+    result = x % sum(int(c) for c in str(x)) == 0
+    print(result)
