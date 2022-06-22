@@ -1,0 +1,13 @@
+def solution(n, arr1, arr2):
+    arr3 = []
+    for a1, a2 in zip(arr1, arr2):
+        tmp = bin(a1 | a2)[2:].zfill(n)
+        num = ""
+        for t in tmp:
+            if t == "1":
+                num += "#"
+            else: 
+                num += " "
+        arr3.append(num)
+            
+    return arr3
